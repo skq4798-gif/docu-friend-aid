@@ -1,39 +1,45 @@
 import { motion, useReducedMotion } from "motion/react";
 import { Link } from "@tanstack/react-router";
-import { Heart, Instagram, Linkedin, Stethoscope, Twitter } from "lucide-react";
+import { Heart, Instagram, Linkedin, Twitter } from "lucide-react";
+import { ToothMark } from "./ToothMark";
 
 const COLUMNS: { title: string; links: { label: string; to?: string }[] }[] = [
   {
-    title: "Care",
+    title: "Patients",
     links: [
-      { label: "Find doctors", to: "/" },
-      { label: "Live queue", to: "/queue" },
-      { label: "Health vault", to: "/dashboard" },
-      { label: "Notifications", to: "/dashboard" },
+      { label: "Book appointment", to: "/book" },
+      { label: "Services", to: "/services" },
+      { label: "Pricing", to: "/pricing" },
+      { label: "Queue status", to: "/queue" },
+      { label: "Patient area", to: "/dashboard" },
     ],
   },
   {
-    title: "For clinics",
+    title: "Clinic",
     links: [
-      { label: "Doctor console", to: "/doctor" },
-      { label: "Queue displays" },
-      { label: "Reception kit" },
-      { label: "Pricing" },
+      { label: "Our dentists", to: "/dentists" },
+      { label: "About & safety", to: "/about" },
+      { label: "Contact", to: "/contact" },
+      { label: "Patient login", to: "/login" },
     ],
   },
   {
-    title: "Company",
-    links: [{ label: "About Caddy" }, { label: "Careers" }, { label: "Press" }, { label: "Blog" }],
+    title: "Staff (demo)",
+    links: [
+      { label: "Reception", to: "/reception" },
+      { label: "Dentist workspace", to: "/doctor" },
+      { label: "Clinic owner", to: "/owner" },
+    ],
   },
 ];
 
 const MARQUEE = [
-  "no lobby waiting",
-  "verified clinics",
-  "live queue",
-  "health vault",
-  "care streaks",
-  "one tap booking",
+  "itemized treatment plans",
+  "sterilized instruments",
+  "family appointments",
+  "private queue status",
+  "dentist-reviewed records",
+  "transparent estimates",
 ];
 
 export function SiteFooter() {
@@ -75,21 +81,13 @@ export function SiteFooter() {
               transition={{ type: "spring", stiffness: 150, damping: 18 }}
             >
               <div className="flex items-center gap-2">
-                <motion.span
-                  className="grid size-10 place-items-center rounded-2xl text-primary-foreground"
-                  style={{ background: "var(--gradient-care)" }}
-                  animate={calm ? {} : { rotate: [-5, 5, -5] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <Stethoscope aria-hidden className="size-4.5" />
-                </motion.span>
+                <ToothMark className="size-10" />
                 <span className="font-display text-xl font-extrabold leading-none">
-                  Caddy<span className="foil-text foil-animate"> Care</span>
+                  Crescent<span className="foil-text foil-animate"> &amp; Pearl</span>
                 </span>
               </div>
               <p className="mt-4 max-w-sm text-[0.8rem] leading-relaxed text-muted-foreground">
-                The daily operating system for small clinics — bookings, live queue, patient records
-                and follow-ups, wrapped in something patients actually enjoy using.
+                Calm, precise family dentistry. Demo contact: hello@crescentpearl.example · +92 300 000 0000 (demo). All details on this site are demonstration data.
               </p>
 
               <div className="mt-5 flex gap-2">
@@ -97,7 +95,7 @@ export function SiteFooter() {
                   <motion.a
                     key={i}
                     href="#"
-                    aria-label="Caddy Care social"
+                    aria-label="Clinic social (demo)"
                     whileHover={{ y: -4, rotate: -6 }}
                     whileTap={{ scale: 0.92 }}
                     transition={{ type: "spring", stiffness: 420, damping: 14 }}
@@ -158,11 +156,11 @@ export function SiteFooter() {
             transition={{ type: "spring", stiffness: 120, damping: 20 }}
             className="hero-title mt-12 select-none text-center text-[10vw] leading-none sm:text-[7vw]"
           >
-            Caddy Care
+            Crescent &amp; Pearl
           </motion.p>
 
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5 text-[0.7rem] font-semibold text-muted-foreground">
-            <p>© {new Date().getFullYear()} Caddy Care. Built for clinics that care.</p>
+            <p>© {new Date().getFullYear()} Crescent & Pearl Dental (demo) · Powered by Caddy Care</p>
             <p className="inline-flex items-center gap-1.5">
               Made with
               <motion.span
@@ -172,7 +170,7 @@ export function SiteFooter() {
               >
                 <Heart aria-hidden className="size-3" />
               </motion.span>
-              for waiting rooms everywhere
+              for calmer dental visits
             </p>
           </div>
         </div>

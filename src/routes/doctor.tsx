@@ -4,19 +4,20 @@ import { useState } from "react";
 import { Activity, ChevronRight, Stethoscope } from "lucide-react";
 import { NotificationBell } from "@/components/caddy/NotificationCenter";
 import { SiteFooter } from "@/components/caddy/SiteFooter";
+import { Odontogram } from "@/components/clinic/Odontogram";
 import { DOCTOR_PATIENTS, type PatientHistory } from "@/lib/caddy-store";
 import { useCaddy } from "@/lib/caddy-context";
 
 export const Route = createFileRoute("/doctor")({
   head: () => ({
     meta: [
-      { title: "Doctor console · Caddy Care" },
+      { title: "Dentist workspace · Crescent & Pearl Dental" },
       {
         name: "description",
         content:
           "The Caddy Care doctor console — see today's queue, open any patient's full visit history and read the reports they shared with you.",
       },
-      { property: "og:title", content: "Doctor console · Caddy Care" },
+      { property: "og:title", content: "Dentist workspace · Crescent & Pearl Dental" },
       {
         property: "og:description",
         content: "Every patient's history, shared reports and risk flags in one screen.",
@@ -198,6 +199,9 @@ function DoctorConsole() {
               </div>
             </motion.section>
           </AnimatePresence>
+        </div>
+        <div className="mt-6">
+          <Odontogram />
         </div>
       </div>
 

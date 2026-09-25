@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Link } from "@tanstack/react-router";
 import { SPECIALIZATIONS } from "@/lib/home-data";
 import { Baby, Eye, Heart, Smile, Sparkles, Stethoscope } from "lucide-react";
 
@@ -45,12 +46,16 @@ export function SpecializationPills() {
         const Icon = ICONS[s.icon];
         return (
         <motion.li key={s.id} variants={pill}>
-          <motion.button
-            type="button"
+          <motion.div
             whileHover={{ scale: 1.05, boxShadow: "var(--shadow-glow)" }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 420, damping: 22 }}
-            className="glass-card flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold"
+            className="rounded-full"
+          >
+          <Link
+            to="/book"
+            search={{ service: s.id }}
+            className="glass-card flex min-h-11 items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold"
           >
             <motion.span
               className={`grid size-8 place-items-center rounded-full text-base ${tintClass[s.tint]}`}
@@ -60,7 +65,8 @@ export function SpecializationPills() {
               <Icon aria-hidden className="size-4" strokeWidth={2.4} />
             </motion.span>
             {s.label}
-          </motion.button>
+          </Link>
+          </motion.div>
         </motion.li>
         );
       })}

@@ -10,12 +10,20 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BookRouteImport } from './routes/book'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DentistsRouteImport } from './routes/dentists'
 import { Route as DoctorRouteImport } from './routes/doctor'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as OwnerRouteImport } from './routes/owner'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as QueueRouteImport } from './routes/queue'
+import { Route as ReceptionRouteImport } from './routes/reception'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SignupRouteImport } from './routes/signup'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,9 +31,29 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DentistsRoute = DentistsRouteImport.update({
+  id: '/dentists',
+  path: '/dentists',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DoctorRoute = DoctorRouteImport.update({
@@ -43,6 +71,16 @@ const OnboardingRoute = OnboardingRouteImport.update({
   path: '/onboarding',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OwnerRoute = OwnerRouteImport.update({
+  id: '/owner',
+  path: '/owner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
@@ -53,6 +91,16 @@ const QueueRoute = QueueRouteImport.update({
   path: '/queue',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReceptionRoute = ReceptionRouteImport.update({
+  id: '/reception',
+  path: '/reception',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
@@ -61,76 +109,132 @@ const SignupRoute = SignupRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/book': typeof BookRoute
+  '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
+  '/dentists': typeof DentistsRoute
   '/doctor': typeof DoctorRoute
   '/login': typeof LoginRoute
   '/onboarding': typeof OnboardingRoute
+  '/owner': typeof OwnerRoute
+  '/pricing': typeof PricingRoute
   '/profile': typeof ProfileRoute
   '/queue': typeof QueueRoute
+  '/reception': typeof ReceptionRoute
+  '/services': typeof ServicesRoute
   '/signup': typeof SignupRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/book': typeof BookRoute
+  '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
+  '/dentists': typeof DentistsRoute
   '/doctor': typeof DoctorRoute
   '/login': typeof LoginRoute
   '/onboarding': typeof OnboardingRoute
+  '/owner': typeof OwnerRoute
+  '/pricing': typeof PricingRoute
   '/profile': typeof ProfileRoute
   '/queue': typeof QueueRoute
+  '/reception': typeof ReceptionRoute
+  '/services': typeof ServicesRoute
   '/signup': typeof SignupRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/book': typeof BookRoute
+  '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
+  '/dentists': typeof DentistsRoute
   '/doctor': typeof DoctorRoute
   '/login': typeof LoginRoute
   '/onboarding': typeof OnboardingRoute
+  '/owner': typeof OwnerRoute
+  '/pricing': typeof PricingRoute
   '/profile': typeof ProfileRoute
   '/queue': typeof QueueRoute
+  '/reception': typeof ReceptionRoute
+  '/services': typeof ServicesRoute
   '/signup': typeof SignupRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/book'
+    | '/contact'
     | '/dashboard'
+    | '/dentists'
     | '/doctor'
     | '/login'
     | '/onboarding'
+    | '/owner'
+    | '/pricing'
     | '/profile'
     | '/queue'
+    | '/reception'
+    | '/services'
     | '/signup'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/book'
+    | '/contact'
     | '/dashboard'
+    | '/dentists'
     | '/doctor'
     | '/login'
     | '/onboarding'
+    | '/owner'
+    | '/pricing'
     | '/profile'
     | '/queue'
+    | '/reception'
+    | '/services'
     | '/signup'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/book'
+    | '/contact'
     | '/dashboard'
+    | '/dentists'
     | '/doctor'
     | '/login'
     | '/onboarding'
+    | '/owner'
+    | '/pricing'
     | '/profile'
     | '/queue'
+    | '/reception'
+    | '/services'
     | '/signup'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BookRoute: typeof BookRoute
+  ContactRoute: typeof ContactRoute
   DashboardRoute: typeof DashboardRoute
+  DentistsRoute: typeof DentistsRoute
   DoctorRoute: typeof DoctorRoute
   LoginRoute: typeof LoginRoute
   OnboardingRoute: typeof OnboardingRoute
+  OwnerRoute: typeof OwnerRoute
+  PricingRoute: typeof PricingRoute
   ProfileRoute: typeof ProfileRoute
   QueueRoute: typeof QueueRoute
+  ReceptionRoute: typeof ReceptionRoute
+  ServicesRoute: typeof ServicesRoute
   SignupRoute: typeof SignupRoute
 }
 
@@ -143,11 +247,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dentists': {
+      id: '/dentists'
+      path: '/dentists'
+      fullPath: '/dentists'
+      preLoaderRoute: typeof DentistsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/doctor': {
@@ -171,6 +303,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OnboardingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/owner': {
+      id: '/owner'
+      path: '/owner'
+      fullPath: '/owner'
+      preLoaderRoute: typeof OwnerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile': {
       id: '/profile'
       path: '/profile'
@@ -185,6 +331,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QueueRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reception': {
+      id: '/reception'
+      path: '/reception'
+      fullPath: '/reception'
+      preLoaderRoute: typeof ReceptionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/signup': {
       id: '/signup'
       path: '/signup'
@@ -197,12 +357,20 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BookRoute: BookRoute,
+  ContactRoute: ContactRoute,
   DashboardRoute: DashboardRoute,
+  DentistsRoute: DentistsRoute,
   DoctorRoute: DoctorRoute,
   LoginRoute: LoginRoute,
   OnboardingRoute: OnboardingRoute,
+  OwnerRoute: OwnerRoute,
+  PricingRoute: PricingRoute,
   ProfileRoute: ProfileRoute,
   QueueRoute: QueueRoute,
+  ReceptionRoute: ReceptionRoute,
+  ServicesRoute: ServicesRoute,
   SignupRoute: SignupRoute,
 }
 export const routeTree = rootRouteImport

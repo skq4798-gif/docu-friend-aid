@@ -7,9 +7,9 @@ import {
   ChevronRight,
   Clock,
   MapPin,
-  Star,
 } from "lucide-react";
 import { DOCTORS, type Doctor } from "@/lib/home-data";
+import { Link } from "@tanstack/react-router";
 
 
 const spring = { type: "spring" as const, stiffness: 260, damping: 22 };
@@ -112,12 +112,9 @@ function DoctorCard({
       <dl className="relative mt-4 grid grid-cols-3 gap-2 rounded-3xl bg-secondary/60 p-3 text-center">
         <div>
           <dt className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-            Rating
+            Languages
           </dt>
-          <dd className="mt-0.5 flex items-center justify-center gap-1 text-sm font-extrabold text-gold">
-            <Star aria-hidden className="size-3.5 fill-current" />
-            {doctor.rating}
-          </dd>
+          <dd className="mt-0.5 text-[11px] font-extrabold leading-tight">{doctor.languages}</dd>
         </div>
         <div>
           <dt className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
@@ -127,23 +124,27 @@ function DoctorCard({
         </div>
         <div>
           <dt className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-            Visit fee
+            Status
           </dt>
-          <dd className="mt-0.5 text-sm font-extrabold">{doctor.fee}</dd>
+          <dd className="mt-0.5 text-sm font-extrabold text-accent-foreground">Demo</dd>
         </div>
       </dl>
 
       <p className="relative mt-3 flex items-center justify-center gap-1.5 text-xs font-bold text-primary">
         <Clock aria-hidden className="size-3.5" />
-        Next slot · {doctor.next}
+        Next indicative slot · {doctor.next}
       </p>
 
-      <motion.button
-        type="button"
+      <motion.div
         whileHover={{ y: -2 }}
         whileTap={{ y: 4 }}
         transition={{ type: "spring", stiffness: 500, damping: 18 }}
-        className="btn-3d relative mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-primary py-3 text-sm font-extrabold text-primary-foreground"
+        className="mt-4"
+      >
+      <Link
+        to="/book"
+        search={{ dentist: doctor.id }}
+        className="btn-3d relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-primary py-3 text-sm font-extrabold text-primary-foreground"
       >
         <motion.span
           aria-hidden
@@ -157,8 +158,9 @@ function DoctorCard({
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: index * 0.4 }}
         />
         <CalendarCheck aria-hidden className="relative size-4" />
-        <span className="relative">Book appointment</span>
-      </motion.button>
+        <span className="relative">Book with {doctor.name.split(" ")[1]}</span>
+      </Link>
+      </motion.div>
     </motion.article>
   );
 }
@@ -214,11 +216,11 @@ export function DoctorCarousel() {
             }}
             className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-[0.65rem] font-bold tracking-[0.22em] uppercase text-primary"
           >
-            Handpicked care
+            Our dental team
           </motion.span>
 
           <h2 className="flex flex-wrap items-baseline gap-x-3 text-[clamp(2rem,6vw,3.4rem)] leading-[0.95] font-black tracking-[-0.04em]">
-            {["Featured", "doctors"].map((word, i) => (
+            {["Meet", "our dentists"].map((word, i) => (
               <motion.span
                 key={word}
                 variants={{
@@ -261,7 +263,7 @@ export function DoctorCarousel() {
           className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-bold text-muted-foreground"
         >
           <span className="size-2 animate-pulse rounded-full bg-primary" />
-          {DOCTORS.length} available now
+          {DOCTORS.length} demo profiles
         </motion.span>
       </motion.header>
 

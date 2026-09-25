@@ -50,7 +50,7 @@ export function HeroCaddy() {
 
         <motion.img
           src={doctorArt}
-          alt="Caddy, the anime-styled clinic doctor mascot"
+          alt="Caddy, the Crescent &amp; Pearl dental care mascot (illustration)"
           width={1024}
           height={1024}
           className="relative z-10 size-full object-contain drop-shadow-[0_28px_45px_rgba(0,0,0,0.28)]"
@@ -61,8 +61,8 @@ export function HeroCaddy() {
       </div>
 
       {[
-        { label: "Verified clinics", pos: "left-0 top-10" },
-        { label: "No lobby waiting", pos: "right-0 bottom-16" },
+        { label: "Sterilized instruments", pos: "left-0 top-10" },
+        { label: "Itemized estimates", pos: "right-0 bottom-16" },
       ].map((chip, i) => (
         <motion.span
           key={chip.label}
